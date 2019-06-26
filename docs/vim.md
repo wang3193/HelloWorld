@@ -11,4 +11,9 @@
 - 5j  往下5行
 - 5k  往上5行
 - /word 高亮word,高亮后n查找下一个word,N查找上一个word
+- yy 复制
+- cc 剪切
+- p 粘贴
+- u undo 撤销
+
 
