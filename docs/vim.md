@@ -16,4 +16,6 @@
 - p 粘贴
 - u undo 撤销
 
-
+# 插件管理
+- vim plug
+- [vim插件](https://vimawesome.com/)
