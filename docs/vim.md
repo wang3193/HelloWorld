@@ -53,3 +53,23 @@
 # 插件管理
 - vim plug
 - [vim插件](https://vimawesome.com/)
+# tmux
+- tmux 启动服务
+- tmux new -s mysession　创建名称为mysession的会话
+- tmux ls　　显示会话列表
+- tmux a -t s1 连接名称为s1的会话
+- tmux kill-session -t s1 关闭名称为s1的会话
+- tmux kill-server 关闭所有会话
+- c 创建新窗口
+- & 删除当前窗口
+- , 重命名当前窗口
+- w 列出所有窗口
+- n 下一个窗口
+- p 上一个窗口
+- % 水平创建pannel
+- " 垂直创建pannel
+- 方向键 切换pannel
+- x 删除pannel
+- z 放大/还原pannel
+
+
