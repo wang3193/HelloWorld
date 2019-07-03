@@ -10,3 +10,6 @@
 - [attr|="a"] 属性attr为a或a-开头的元素
 - [attr$="a"] 属性attr以a开头的元素
 - [attr*="a"] 属性attr包含a的元素
+
+# 数值
+- em 父类字体大小,默认是16px
