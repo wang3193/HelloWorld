@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+            aside {
+                float: right;
+            }
+            /* margin:0 auto; 设置居中 */
+            table {
+                margin:0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <!--header 页面头部-->
+        <header>
+            <!--nav 导航栏-->
+            <nav></nav>
+        </header>
+        <!-- section 定义文档某个区域-->
+        <section>
+            <!-- article 定义文章内容-->
+            <article>
+            <table border="1">
+                <caption>表格标题</caption>
+                <!--colgroup 定义列样式组-->
+                <colgroup>
+                    <col span="2">
+                    <col style="background-color: blue">
+                    <col style="background-color: blue">
+                    <col style="background-color: blue">
+                </colgroup>
+                <thead>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <!--rowspan 行合并-->
+                        <td rowspan="2">aaa</td>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                    </tr>
+                    <tr>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                    </tr>
+                    <tr>
+                        <!-- colspan 跨列合并-->
+                        <td colspan="3">bbb</td>
+                        <td>bbb</td>
+                        <td>bbb</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+            </article>
+        </section>
+        <aside>
+            侧边栏
+        </aside>
+
+        <!--footer 页面尾部-->
+        <footer>
+
+        </footer>
+    </body>
+</html>

@@ -49,6 +49,8 @@
 - set ic ingnore case 忽略大小写 set noic 取消忽略大小写
 - set hls is 设置连续高光查询 set nohlsearch 取消高光
 - ctrl+w 在窗口中切换
+- ctrl+v 块模式选择, I 块模式编辑
+- > 在显示模式选择完后进行后缩进,<进行前缩进
 
 # 插件管理
 - vim plug
