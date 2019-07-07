@@ -96,6 +96,9 @@
 ## float
 - float:left 左浮动 right 右浮动
 
+## visibility
+- visibility:visible|hidden 元素可见|不可见但影响布局
+
 ## absolute
 - position:absolute 绝对布局
 - top: 据上方 left: 左 buttom: 下 right: 右
@@ -115,6 +118,8 @@
 - @media only screen and (min-width: 600px) 屏幕宽度大于600px
 - @media only screen and (max-width: 768px) 屏幕宽度小于768px
 - orientation：portrait | landscape 竖屏|横屏
-- @media only screen and (orientation: portrait) 判断是否是竖屏 
+- @media only screen and (orientation: portrait) 判断是否是竖屏
+- maxwidth: 600px 设置图片的最大宽度为600px
+-  
  
  
