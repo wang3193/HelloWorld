@@ -109,9 +109,21 @@ request.onload = function() {}
 - node.parentNode.removeChild(node)
 - element.style 操作内联样式
 ## 客户端存储
-- sessionStorage 关闭浏览器时会丢失
-- localStorage 本地数据
+### sessionStorage 关闭浏览器时会丢失
+### localStorage 本地数据
 - localStorage.setItem('key', value) 存储数据
 - localStorage.getItem('key') 获取数据
 - localStorage.removeItem('key') 删除数据
-- 
+### indexedDB
+- var req = window.indexedDB.open(dbname, version) 打开数据库
+- req.onerror = function(event){}
+- req.onsuccess = function(event){ db = req.result;}
+- req.onupgradeneeded = function(event){req.target.result;} version大于实际版本,数据库升级
+- db.createObjectStore(tableName, {keyPath: 'id'}) 创建表,主键为id
+- db.transaction([tableName], 'readwrite') 创建事务,readonly/readwrite, 在操作数据库之前需先定义事务
+- .add() 添加数据
+- .get(keypath) 查询数据
+- .put() 更新数据
+- .delet(keypath) 删除数据
+- createIndex(indexname, calname, {option}) 创建索引,只有创建索引才可使用索引字段查询,否者只能用主键查询
+- db.objectStore(tableName).index(indexName).get() 使用索引查询
