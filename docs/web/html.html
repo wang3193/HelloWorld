@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <!-- 字符编码 -->
+        <meta charset="utf-8">
+        <!--meta name属性指定元素类型 content指定元素数据-->
+        <meta name="author" content="Sam Wang">
+        <meta name="description" content="some description">
+        <!--添加页面图标-->
+        <link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon">
+        <!--标题-->
+        <title>html demo</title>
         <style>
             aside {
                 float: right;
@@ -15,13 +23,111 @@
     <body>
         <!--header 页面头部-->
         <header>
-            <!--nav 导航栏-->
-            <nav></nav>
         </header>
+        <!--nav 导航栏-->
+        <nav>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </nav>
+        <!--main表示网站主体-->
+        <main>
         <!-- section 定义文档某个区域-->
         <section>
             <!-- article 定义文章内容-->
             <article>
+                <!--无序列表-->
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+                <!--有序列表-->
+                <ol>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ol>
+                <!--斜体-->
+                <em>斜体</em>
+                <!--粗体-->
+                <strong>粗体</strong>
+                <!--超链接-->
+                <a href="#" title="鼠标停留显示">description</a>
+                <!--描述列表-->
+                <dl>
+                    <dt>title</dt>
+                    <dd>content</dd>
+                    <dt>title2</dt>
+                    <dd>content2</dd>
+                </dl>
+                <!--引用-->
+                <!--块级引用-->
+                <blockquote href="引用url">
+                    引用内容
+                </blockquote>
+                <!--行内引用-->
+                <p><q cite="引用url">引用content</q><a href="引用url"><cite>web name</cite></a></p>
+                <!--缩略语-->
+                <abbr title="夏季奥林匹克运动会">奥运会</abbr>
+                <!--联系地址,只用于作者地址的语义化-->
+                <address>
+                    <p>Sam Wang, China</p>
+                </address>
+                <!--上标和下标-->
+                <p>C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub></p>
+                <p>x<sup>2</sup></p>
+                <!--代码块-->
+                <pre>
+                    <code>
+                        //code标签
+                            para.onclick = function() {
+                                alert('噢，噢，噢，别点我了。');
+                            }
+                    </code>
+                    <var>var标签表示变量</var>
+                    <kbd>kbd标签表示键盘输入</kbd>
+                    <samp>samp表示程序的输出</samp>
+                </pre>
+                <!--时间和日期-->
+                <!-- 标准简单日期 -->
+                <time datetime="2016-01-20">20 January 2016</time>
+                <!-- 只包含年份和月份-->
+                <time datetime="2016-01">January 2016</time>
+                <!-- 只包含月份和日期 -->
+                <time datetime="01-20">20 January</time>
+                <!-- 只包含时间，小时和分钟数 -->
+                <time datetime="19:30">19:30</time>
+                <!-- 还可包含秒和毫秒 -->
+                <time datetime="19:30:01.856">19:30:01.856</time>
+                <!-- 日期和时间 -->
+                <time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time>
+                <!-- 含有市区偏移值的日期时间 -->
+                <time datetime="2016-01-20T19:30+01:00">7.30pm, 20 January 2016 is 8.30pm in France</time>
+                <!-- 调用特定的周 -->
+                <time datetime="2016-W04">The fourth week of 2016</time>
+                <!---图片-->
+                <figure>
+                    <img width="200" height="200" title="pic title" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563118078736&di=17927cce58482641922c6502092d3d7b&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F00%2F11%2F92%2F9856a98d34cc109.jpg" alt="description">
+                    <figcaption>description abort img</figcaption>
+                </figure>
+                <!--音频-->
+                <video controls>
+                    <source src="rabbit320.mp4" type="video/mp4">
+                    <source src="rabbit320.webm" type="video/webm">
+                    <p>你的浏览器不支持 HTML5 视频。可点击<a href="rabbit320.mp4">此链接</a>观看</p>
+                    <track kind="subtitles" src="subtitles_en.vtt" srclang="en">
+                </video>
+                <!--iframe嵌入-->
+                <iframe src="https://www.baidu.com"
+                        width="100%" height="500" frameborder="0"
+                        allowfullscreen sandbox>
+                <p> <a href="https://www.baidu.com">
+                    Fallback link for browsers that don't support iframes
+                </a> </p>
+                </iframe>
             <table border="1">
                 <caption>表格标题</caption>
                 <!--colgroup 定义列样式组-->
@@ -60,12 +166,28 @@
 
                 </tfoot>
             </table>
+            <!--表单-->
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>part name</legend>
+                    <div>
+                        <label>
+                            Label:
+                            <textarea></textarea>
+                        </label>
+                    </div>
+                </fieldset>
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="test">
+                </div>
+            </form>
             </article>
         </section>
         <aside>
             侧边栏
         </aside>
-
+        </main>
         <!--footer 页面尾部-->
         <footer>
 
