@@ -226,6 +226,12 @@
 - [MDN-前段资料库](https://developer.mozilla.org/zh-CN/)
 - [酷壳网-左耳听风blog](https://coolshell.cn)
 - [廖雪峰博客](https://www.liaoxuefeng.com/)
+- [前端训练营](https://github.com/ruanyf/jstraining/blob/master/demos/README.md#backbone)
+- [webpack](https://www.webpackjs.com/concepts/)
+- [Typescript](https://ts.xcatliu.com/)
+- [Typescript](https://www.runoob.com/typescript/ts-tutorial.html)
+- [vue](https://cn.vuejs.org/v2/guide/installation.html)
+- [Express](http://www.expressjs.com.cn/guide/routing.html)
 # 编程语言学习
 ## python
 - [廖雪峰-python](https://www.liaoxuefeng.com/wiki/1016959663602400)  
