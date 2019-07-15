@@ -95,6 +95,7 @@
     - [科学上网 git](https://github.com/loremwalker/WebSiteUseful)
     -  使用国外邮箱给allinfa01@gmail.com发送邮件，获取最新上google的方法
     - [利用搬瓦工搭建自己的私有SS进行科学上网](http://www.it1352.com/768061.html)
+    - [ssr](https://raw.githubusercontent.com/ImLaoD/sub/master/ssrshare.com)
     - 翻个墙ip,修改hosts文件地址
     ```
     https://fangeqiang.com
