@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+         <title>weather report</title>
+        <script>
+            //https://www.tianqiapi.com/api/?version=v1&city=济南
+            $(function(){
+                var wea_imges = {
+                "yun":'<img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/3.png">',
+                "lei":'<img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/15.png">',
+                "yin":'<img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/2.png">',
+                "qing":'<img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/1.png">',
+                "xue":'<img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/17.png">',
+                "yu":'<img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/8.png">'
+                }
+
+                $("#search").on ("click", function(){
+                    if($("#city_val").val()){
+                        let url = "https://www.tianqiapi.com/api/?version=v1&city="+$("#city_val").val();
+                        $.getJSON(url, function(json){
+                            $(".search").hide();
+                            $("#change_city").show();
+                            $(".weather").append(
+                                " <div>"+
+                                "<div><p>"+json.data[0].date+" "+json.data[0].week+" "+ json.city + "</p></div>"+
+                                "<div> " + wea_imges[json.data[0].wea_img]+"</div>"+
+                                "<div class='cur-temp'>"+
+                                "<p>"+json.data[0].tem+"</p></div>"+
+                                "<p>"+json.data[0].tem2+"~"+json.data[0].tem1+"</p>"+
+                                "<p>"+json.data[0].wea+"</p>"+
+                                "<p>"+json.data[0].win[0]+" "+json.data[0].win_speed+"</p>"+
+                                "<button class='air'>"+json.data[0].air+" "+json.data[0].air_level+"</button>"+
+                                "</div>"
+                            )
+                            for(let i = 1; i < json.data.length; i++){
+                                $(".weather").append(
+                                    "<div><div><p>"+json.data[i].week+"</p><p>"+json.data[i].date+"</p></div>"+
+                                    "<div>"+wea_imges[json.data[i].wea_img]+"</div>"+
+                                    "<p>"+json.data[i].tem2+"~"+json.data[i].tem1+"</p>"+
+                                    "<p>"+json.data[i].wea+"</p>"+
+                                    "<p>"+json.data[i].win[0]+" "+json.data[i].win_speed+"</p>"+
+                                    "</div>"
+                                )
+                            }
+                            if(json.data[0].air < 50 && json.data[0].air < 100){
+                                $(".air").css("background-color", "#82c91d");
+                            }else if(json.data[0].air >= 100 && json.data[0].air < 150){
+                                $(".air").css("background-color", "#f76706");
+                            }else {
+                                $(".air").css("background-color", "red");
+                            }
+                        });
+                    }
+                   
+                
+
+                });
+                $("#change_city").on("click", function(){
+                    $(".search").show();
+                    $(".weather").html("");
+                    $("#change_city").hide();
+                });
+            });
+            
+
+        </script>
+        <style>
+            header {
+                text-align: center;
+            }
+            h1 {
+                display: inline;
+            }
+
+            .search {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 50%;
+                transform: translate( -50%, -50%);
+            }
+            #city_val {
+                height: 3rem;
+                width: 70%;
+                font-size: 2rem;
+                border-radius: 10px;
+            }
+            #search {
+                width: 20%;
+                height: 3rem;
+                font-size: 2rem;
+                background-color: #3385ff;
+                color: white;
+                border-radius: 5px;
+            }
+            .weather {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 70%;
+                transform: translate( -50%, -50%);
+                display: flex;
+                background-color: #3e9bef;
+                border-radius: 5px;
+                color: white;
+            }
+            .weather>div {
+                border-right: 2px solid white;
+                padding: 1%;
+                text-align: center;
+                flex:1;
+            }
+            .weather>div:nth-of-type(1){
+                flex:2;
+            }
+            .cur-temp p{
+               display: inline-block; 
+               font-size: 2rem;
+               line-height: 1rem;
+            }
+            .cur-temp p i{
+                display: block;
+                text-align: left;
+                font-size: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+       <main>
+           <header>
+                <h1>天气预报</h1>
+                <a id="change_city" href="#" hidden>切换城市</a>
+           </header>
+           <section class="search">
+               <form>
+                    <input  id="city_val" type="text" placeholder="请输入需要查询的城市">
+                <button id="search" type="submit">search</button>
+               </form>
+           </section>
+           <section class="w_section">
+           <div class="weather"></div>
+           </section>
+       </main>
+        <!--
+            <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/1.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/2.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/3.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/4.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/5.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/6.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/7.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/8.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/9.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/10.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/11.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/12.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/13.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/14.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/15.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/16.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/17.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/18.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/19.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/20.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/21.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/22.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/23.png">
+           <img src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/aladdin/img/new_weath/bigicon/24.png">
+           --> 
+    </body>
+</html>

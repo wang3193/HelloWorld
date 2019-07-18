@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Random Quote Machine</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                var random = function(){
+                    $.getJSON("https://api.quotable.io/random", function(json){
+                        $("#content").html(json.content);
+                        $("#author").html('--'+json.author);
+                        fill_color();
+                    });
+                }
+                $("#change").on("click", function(){
+                    random();
+                });
+                random();
+                var fill_color = function(){
+                    var color = random_color();
+                    $("body,.square,button").css("background-color",color);
+                    $("span, cite, #quote-left").css("color", color);
+                }
+                var random_color = function(){
+                    return "rgb(" + (Math.floor(Math.random() * 254)+1) + ',' + (Math.floor(Math.random() * 254)+1) + ","+ (Math.floor(Math.random() * 254)+1)+")";
+                }
+            });
+
+
+        </script>
+        <style>
+            body {
+                background-color: blue;
+            }
+            .page{
+                background-color: white;
+                width: 40%;
+                margin-top: 10%;
+                margin-left:auto;
+                margin-right: auto;
+                border-radius: 10px;
+                padding: 2%;
+                position: relative;
+                box-sizing: border-box;
+            }
+            .icon {
+                color:white;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%); 
+            }
+           
+            .square {
+                display: inline-block;
+                background-color:blue;
+                position: relative;
+                height: 3rem;
+                width: 3rem;
+                border-radius: 5px;
+                left: 6%;
+            }
+            span {
+                font-size: 2rem;   
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                color: blue;
+            }
+            cite {
+                display: block;
+                font-size: 1.5rem;
+                text-align: right;
+                color: blue;
+            }
+            .fa {
+                font-size: 2rem;
+            }
+            button {
+                background-color: blue;
+                position: absolute;
+                right: 6%;
+                color:white;
+                text-align: center;
+                border-radius: 5px;
+                font-family: Arial, Helvetica, sans-serif;
+                line-height: 2.5rem;
+                padding: 0 1rem;
+            }
+            #quote-left {
+                position: relative;
+                color:blue; 
+            }
+            footer {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section class="page">
+                <blockquote>
+                    <i id="quote-left" class="fa fa-quote-left"></i>
+                    <span id="content">Quote is coming soon...</span>
+                    <cite id="author">--Sam Wang</cite>
+                </blockquote>
+                <section class="footer">
+                    <a class="square" href="https://github.com/wang3193" target="_blank"><i class="fa fa-github icon"></i></a>
+                    <a class="square" href="https://weibo.com/6103284120/profile?topnav=1&wvr=6" target="_blank"><i class="fa fa-weibo icon"></i></a>
+                    <button id="change">New quote</button>
+                </section>
+               
+            </section>
+            <footer>
+                <p>created by <a href="https://github.com/wang3193" target="_blank">Sam Wang</a></p>
+            </footer>
+        </main>
+    </body>
+</html>
