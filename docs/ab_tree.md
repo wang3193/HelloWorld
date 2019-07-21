@@ -212,7 +212,7 @@
 - [picdiet压缩图片大小网站](https://www.picdiet.com/)
 - [批量裁剪缩放图片](https://www.smartresize.com/)
 - [正则学习1](https://regexr.com/)
-- [正则表达式学习2](https://jex.im/regulex/#!flags=&re=%5E(a%7Cb)*%3F%24)
+- [正则表达式学习2](https://jex.im/regulex)
 - [在线编译器](https://rextester.com/l/java_online_compiler)
 - [在线编译器2](https://www.onlinegdb.com/)
 - [codepen html,css,js设计类工具](https://codepen.io/)
@@ -234,6 +234,8 @@
 - [vue](https://cn.vuejs.org/v2/guide/installation.html)
 - [Express](http://www.expressjs.com.cn/guide/routing.html)
 # 编程语言学习
+## nodejs
+- [7天学会nodejs](nqdeng.github.io/7-days-nodejs/)
 ## python
 - [廖雪峰-python](https://www.liaoxuefeng.com/wiki/1016959663602400)  
 - 学习笔记
