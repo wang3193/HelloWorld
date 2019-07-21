@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [配置](#%E9%85%8D%E7%BD%AE)
+- [快捷键](#%E5%BF%AB%E6%8D%B7%E9%94%AE)
+- [插件管理](#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86)
+- [tmux](#tmux)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 [TOC]
 # 配置
 - vim ~/.vimrc 
@@ -35,6 +46,7 @@
 - s/old/new 将第一个old替换成new
 - s/old/new/g 将正行old替换为new
 - #,#s/old/new/g 将#行到#行的old全部替换为new
+- 1,$s/old/new/g 将第一行到最后一行的old替换为new
 - %s/old/new/g 将整个文件的old替换new
 - %s/old/new/gc 将整个文件的old替换new,替换时进行提示是否替换
 - ctrl+G 查看当前光标的状态

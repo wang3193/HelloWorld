@@ -1,3 +1,37 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [spring 系列](#spring-%E7%B3%BB%E5%88%97)
+- [中间件](#%E4%B8%AD%E9%97%B4%E4%BB%B6)
+- [开发环境](#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)
+- [前端](#%E5%89%8D%E7%AB%AF)
+- [辅助工具](#%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7)
+- [算法](#%E7%AE%97%E6%B3%95)
+- [资料网站](#%E8%B5%84%E6%96%99%E7%BD%91%E7%AB%99)
+  - [导航类](#%E5%AF%BC%E8%88%AA%E7%B1%BB)
+  - [编程类](#%E7%BC%96%E7%A8%8B%E7%B1%BB)
+  - [语言学习网站](#%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99)
+  - [设计学习网站](#%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99)
+- [编程语言学习](#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0)
+  - [flutter](#flutter)
+  - [nodejs](#nodejs)
+  - [python](#python)
+  - [java](#java)
+    - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
+    - [基础](#%E5%9F%BA%E7%A1%80)
+      - [面向对象](#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1)
+        - [什么是面向对象](#%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1)
+          - [面向对象, 面向过程](#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B)
+          - [面向对象的三大基本特征和五大基本原则](#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99)
+        - [平台无关性](#%E5%B9%B3%E5%8F%B0%E6%97%A0%E5%85%B3%E6%80%A7)
+          - [Java如何实现的平台无关](#java%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%B9%B3%E5%8F%B0%E6%97%A0%E5%85%B3)
+          - [JVM还支持哪些语言（Kotlin、Groovy、JRuby、Jython、Scala）](#jvm%E8%BF%98%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AF%AD%E8%A8%80kotlingroovyjrubyjythonscala)
+        - [值传递](#%E5%80%BC%E4%BC%A0%E9%80%92)
+          - [值传递,引用传递](#%E5%80%BC%E4%BC%A0%E9%80%92%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 [TOC]
 
 # spring 系列
@@ -18,6 +52,7 @@
 - ## spring cloud config
 - ## sprign cloud
     - [springcloud中文索引](http://springcloud.fun/) 
+    - [spring cloud 入门教程](https://blog.csdn.net/forezp/article/details/70148833)
 
 # 中间件
 - ## mysql
@@ -196,6 +231,12 @@
 - [大数据量常用处理算法](https://blog.csdn.net/u010601183/article/details/56481868)
 - [败者树](https://blog.csdn.net/u012785877/article/details/70880966)
 # 资料网站
+## 导航类
+- [1纳米网站推荐](http://1nami.com)
+- [e狗子](https://www.egouz.com/)
+- [在线课程搜索](http://www.coursade.com/)
+- [国外学习网站推荐](http://1nami.com/site/210.html)
+## 编程类
 - [java8新特性-教程网](https://www.exception.site/java8/java8-new-features)
 - [前端库](https://www.jqhtml.com)
 - [菜鸟教程](http://www.runoob.com)
@@ -229,13 +270,25 @@
 - [廖雪峰博客](https://www.liaoxuefeng.com/)
 - [前端训练营](https://github.com/ruanyf/jstraining/blob/master/demos/README.md#backbone)
 - [webpack](https://www.webpackjs.com/concepts/)
+- [webpack2](https://www.html.cn/doc/webpack2/)
 - [Typescript](https://ts.xcatliu.com/)
 - [Typescript](https://www.runoob.com/typescript/ts-tutorial.html)
 - [vue](https://cn.vuejs.org/v2/guide/installation.html)
 - [Express](http://www.expressjs.com.cn/guide/routing.html)
+- [前端开发](https://www.html.cn/study/)
+- [力扣-面试刷题](https://leetcode-cn.com/)
+## 语言学习网站
+- [忆术家](https://www.memrise.com/)
+- [译学馆](https://www.yxgapp.com/)
+- [TED](https://www.ted.com/#/)
+## 设计学习网站
+- [优优教程网](https://uiiiuiii.com/)
+- [巧匠课堂](https://www.qiaojiang.tv/)
 # 编程语言学习
+## flutter
+- [flutter实战](https://book.flutterchina.club/)
 ## nodejs
-- [7天学会nodejs](nqdeng.github.io/7-days-nodejs/)
+- [7天学会nodejs](http://nqdeng.github.io/7-days-nodejs/)
 ## python
 - [廖雪峰-python](https://www.liaoxuefeng.com/wiki/1016959663602400)  
 - 学习笔记

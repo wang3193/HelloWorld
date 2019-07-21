@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MyResource",
+            "request": "launch",
+            "mainClass": "MyResource"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - myResource",
+            "request": "launch",
+            "mainClass": "myResource"
+        }
+    ]
+}
