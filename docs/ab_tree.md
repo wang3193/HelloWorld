@@ -235,7 +235,7 @@
 - [Express](http://www.expressjs.com.cn/guide/routing.html)
 # 编程语言学习
 ## nodejs
-- [7天学会nodejs](nqdeng.github.io/7-days-nodejs/)
+- [7天学会nodejs](http://nqdeng.github.io/7-days-nodejs/)
 ## python
 - [廖雪峰-python](https://www.liaoxuefeng.com/wiki/1016959663602400)  
 - 学习笔记
