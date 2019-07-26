@@ -9,6 +9,7 @@
 - [辅助工具](#%e8%be%85%e5%8a%a9%e5%b7%a5%e5%85%b7)
 - [算法](#%e7%ae%97%e6%b3%95)
 - [资料网站](#%e8%b5%84%e6%96%99%e7%bd%91%e7%ab%99)
+  - [导航类](#%e5%af%bc%e8%88%aa%e7%b1%bb)
   - [编程类](#%e7%bc%96%e7%a8%8b%e7%b1%bb)
   - [语言学习网站](#%e8%af%ad%e8%a8%80%e5%ad%a6%e4%b9%a0%e7%bd%91%e7%ab%99)
   - [设计学习网站](#%e8%ae%be%e8%ae%a1%e5%ad%a6%e4%b9%a0%e7%bd%91%e7%ab%99)
@@ -228,6 +229,11 @@
 - [大数据量常用处理算法](https://blog.csdn.net/u010601183/article/details/56481868)
 - [败者树](https://blog.csdn.net/u012785877/article/details/70880966)
 # 资料网站
+## 导航类
+- [1纳米网站推荐](http://1nami.com)
+- [e狗子](https://www.egouz.com/)
+- [在线课程搜索](http://www.coursade.com/)
+- [国外学习网站推荐](http://1nami.com/site/210.html)
 ## 编程类
 - [java8新特性-教程网](https://www.exception.site/java8/java8-new-features)
 - [前端库](https://www.jqhtml.com)
@@ -262,15 +268,13 @@
 - [廖雪峰博客](https://www.liaoxuefeng.com/)
 - [前端训练营](https://github.com/ruanyf/jstraining/blob/master/demos/README.md#backbone)
 - [webpack](https://www.webpackjs.com/concepts/)
-- [webpack2] (https://www.html.cn/doc/webpack2/)
+- [webpack2](https://www.html.cn/doc/webpack2/)
 - [Typescript](https://ts.xcatliu.com/)
 - [Typescript](https://www.runoob.com/typescript/ts-tutorial.html)
 - [vue](https://cn.vuejs.org/v2/guide/installation.html)
 - [Express](http://www.expressjs.com.cn/guide/routing.html)
 - [前端开发](https://www.html.cn/study/)
-- [在线课程搜索](http://www.coursade.com/)
-- [国外学习网站推荐](http://1nami.com/site/210.html)
-- [网站推荐](http://1nami.com)
+- [力扣-面试刷题](https://leetcode-cn.com/)
 ## 语言学习网站
 - [忆术家](https://www.memrise.com/)
 - [译学馆](https://www.yxgapp.com/)
