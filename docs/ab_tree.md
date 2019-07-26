@@ -1,3 +1,35 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [spring 系列](#spring-%e7%b3%bb%e5%88%97)
+- [中间件](#%e4%b8%ad%e9%97%b4%e4%bb%b6)
+- [开发环境](#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83)
+- [前端](#%e5%89%8d%e7%ab%af)
+- [辅助工具](#%e8%be%85%e5%8a%a9%e5%b7%a5%e5%85%b7)
+- [算法](#%e7%ae%97%e6%b3%95)
+- [资料网站](#%e8%b5%84%e6%96%99%e7%bd%91%e7%ab%99)
+  - [编程类](#%e7%bc%96%e7%a8%8b%e7%b1%bb)
+  - [语言学习网站](#%e8%af%ad%e8%a8%80%e5%ad%a6%e4%b9%a0%e7%bd%91%e7%ab%99)
+  - [设计学习网站](#%e8%ae%be%e8%ae%a1%e5%ad%a6%e4%b9%a0%e7%bd%91%e7%ab%99)
+- [编程语言学习](#%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e5%ad%a6%e4%b9%a0)
+  - [nodejs](#nodejs)
+  - [python](#python)
+  - [java](#java)
+    - [参考资料](#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99)
+    - [基础](#%e5%9f%ba%e7%a1%80)
+      - [面向对象](#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1)
+        - [什么是面向对象](#%e4%bb%80%e4%b9%88%e6%98%af%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1)
+          - [面向对象, 面向过程](#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1-%e9%9d%a2%e5%90%91%e8%bf%87%e7%a8%8b)
+          - [面向对象的三大基本特征和五大基本原则](#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%9a%84%e4%b8%89%e5%a4%a7%e5%9f%ba%e6%9c%ac%e7%89%b9%e5%be%81%e5%92%8c%e4%ba%94%e5%a4%a7%e5%9f%ba%e6%9c%ac%e5%8e%9f%e5%88%99)
+        - [平台无关性](#%e5%b9%b3%e5%8f%b0%e6%97%a0%e5%85%b3%e6%80%a7)
+          - [Java如何实现的平台无关](#java%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%e5%b9%b3%e5%8f%b0%e6%97%a0%e5%85%b3)
+          - [JVM还支持哪些语言（Kotlin、Groovy、JRuby、Jython、Scala）](#jvm%e8%bf%98%e6%94%af%e6%8c%81%e5%93%aa%e4%ba%9b%e8%af%ad%e8%a8%80kotlingroovyjrubyjythonscala)
+        - [值传递](#%e5%80%bc%e4%bc%a0%e9%80%92)
+          - [值传递,引用传递](#%e5%80%bc%e4%bc%a0%e9%80%92%e5%bc%95%e7%94%a8%e4%bc%a0%e9%80%92)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 [TOC]
 
 # spring 系列
@@ -196,6 +228,7 @@
 - [大数据量常用处理算法](https://blog.csdn.net/u010601183/article/details/56481868)
 - [败者树](https://blog.csdn.net/u012785877/article/details/70880966)
 # 资料网站
+## 编程类
 - [java8新特性-教程网](https://www.exception.site/java8/java8-new-features)
 - [前端库](https://www.jqhtml.com)
 - [菜鸟教程](http://www.runoob.com)
@@ -229,10 +262,22 @@
 - [廖雪峰博客](https://www.liaoxuefeng.com/)
 - [前端训练营](https://github.com/ruanyf/jstraining/blob/master/demos/README.md#backbone)
 - [webpack](https://www.webpackjs.com/concepts/)
+- [webpack2] (https://www.html.cn/doc/webpack2/)
 - [Typescript](https://ts.xcatliu.com/)
 - [Typescript](https://www.runoob.com/typescript/ts-tutorial.html)
 - [vue](https://cn.vuejs.org/v2/guide/installation.html)
 - [Express](http://www.expressjs.com.cn/guide/routing.html)
+- [前端开发](https://www.html.cn/study/)
+- [在线课程搜索](http://www.coursade.com/)
+- [国外学习网站推荐](http://1nami.com/site/210.html)
+- [网站推荐](http://1nami.com)
+## 语言学习网站
+- [忆术家](https://www.memrise.com/)
+- [译学馆](https://www.yxgapp.com/)
+- [TED](https://www.ted.com/#/)
+## 设计学习网站
+- [优优教程网](https://uiiiuiii.com/)
+- [巧匠课堂](https://www.qiaojiang.tv/)
 # 编程语言学习
 ## nodejs
 - [7天学会nodejs](http://nqdeng.github.io/7-days-nodejs/)

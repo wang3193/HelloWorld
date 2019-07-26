@@ -3,6 +3,26 @@
 # 安装
 - js cdn引入<script src="https://unpkg.com/vue@2.0.1/dist/vue.js"></script>
 - cdn 引入vue-resource,用于处理api调用<script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+- el: 绑定css选择器选中元素
+- v-bind: 绑定属性事件等
+- v-if: 条件,可以处理dom元素是否显示
+- v-for: 迭代
+- data: 绑定数据模型
+- method: 绑定方法
+- v-model: 双向绑定
+- Vue.component: 注册组件
+```
+// 定义名为 todo-item 的新组件
+Vue.component('todo-item', {
+  template: '<li>这是个待办项</li>'
+})
+
+<ol>
+  <!-- 创建一个 todo-item 组件的实例 -->
+  <todo-item></todo-item>
+</ol>
+```
+- 
 ```
 var vm = new Vue({
     el: '#vm',

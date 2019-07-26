@@ -604,7 +604,7 @@ wss.on('connection', function (ws) {
             }
         });
     })
-});
+}); 
 ```
 - 客户端
 ```
