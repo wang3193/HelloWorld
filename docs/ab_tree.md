@@ -52,6 +52,7 @@
 - ## spring cloud config
 - ## sprign cloud
     - [springcloud中文索引](http://springcloud.fun/) 
+    - [spring cloud 入门教程](https://blog.csdn.net/forezp/article/details/70148833)
 
 # 中间件
 - ## mysql
