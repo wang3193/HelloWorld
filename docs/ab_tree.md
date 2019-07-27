@@ -283,6 +283,8 @@
 - [优优教程网](https://uiiiuiii.com/)
 - [巧匠课堂](https://www.qiaojiang.tv/)
 # 编程语言学习
+## flutter
+- [flutter实战](https://book.flutterchina.club/)
 ## nodejs
 - [7天学会nodejs](http://nqdeng.github.io/7-days-nodejs/)
 ## python
