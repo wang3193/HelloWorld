@@ -10,6 +10,10 @@
 
 # Nginx
 - 代理服务器
+- http中间件
+- 轻量级
+- CPU亲和 把CPU核心和Nginx工作进程绑定,减少切换cpu的cache miss
+- 
 ## install
 - brew install nginx
 - /usr/local/etc/nginx/nginx.conf
