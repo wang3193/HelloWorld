@@ -3,17 +3,35 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [VUE](#vue)
-- [安装](#%E5%AE%89%E8%A3%85)
+  - [安装](#%e5%ae%89%e8%a3%85)
+  - [创建项目](#%e5%88%9b%e5%bb%ba%e9%a1%b9%e7%9b%ae)
+  - [使用](#%e4%bd%bf%e7%94%a8)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 [TOC]
 # VUE
-# 安装
+## 安装
 - js cdn引入<script src="https://unpkg.com/vue@2.0.1/dist/vue.js"></script>
 - cdn 引入vue-resource,用于处理api调用<script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+- 使用client 安装 npm install --global vue-cli
+- 安装vue-cli3 npm install -g @vue/cli
+- yarn global add @vue/cli  
+## 创建项目
+- vue-cli 2.0
+- vue init webpack my-project
+- npm install
+- npm run dev
+- vue-cli 3.0
+- vue create my-project
+- npm run dev
+- npm run build
+- vue ui 打开图形化创建项目
+## 使用
 - el: 绑定css选择器选中元素
-- v-bind: 绑定属性事件等
+- v-bind: 绑定属性事件等 绑定属性简写为: 绑定事件简写@
+- v-html: 绑定页面
+- v-text: 绑定数据 
 - v-if: 条件,可以处理dom元素是否显示
 - v-for: 迭代
 - data: 绑定数据模型
