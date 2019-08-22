@@ -29,7 +29,7 @@
 - vue ui 打开图形化创建项目
 ## 使用
 - el: 绑定css选择器选中元素
-- v-bind: 绑定属性事件等 绑定属性简写为: 绑定事件简写@
+- v-bind: 绑定属性事件等 绑定属性简写为: 
 - v-html: 绑定页面
 - v-text: 绑定数据 
 - v-if: 条件,可以处理dom元素是否显示
@@ -37,6 +37,9 @@
 - data: 绑定数据模型
 - method: 绑定方法
 - v-model: 双向绑定
+- v-on: 事件绑定, 绑定事件简写@
+- ref='refname': 使用ref在节点上命名
+- $refs.refname: 在vue对象中获取ref节点
 - Vue.component: 注册组件
 ```
 // 定义名为 todo-item 的新组件

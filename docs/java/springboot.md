@@ -22,3 +22,7 @@
 - static 保存所有的静态资源
 - templates 保存所有的模板页面
 - application.properties springboot配置文件
+## 热部署
+- pom
+  - springloaded
+  - spring-boot-devtools
