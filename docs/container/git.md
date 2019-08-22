@@ -34,6 +34,8 @@
   - 切换到被合并的分支上
   - git merge merge_branch_name
 ## git 远程仓库
+- git remote 查看远程库列表
+- git remote -v 查看远程库地址列表
 - git remote add alias url 添加远程库
 - git push alias branch 推送到远程仓库
 - git clone url copy远程库
