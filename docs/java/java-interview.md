@@ -139,6 +139,70 @@
 - spring ApplicationContextAware, ApplicationListener<ContextRefreshEvent>
 - applicationContext.getBeansWithAnnotation(annotation.class);
 
+## JAVA并发包
+- [concurrent包源码阅读](https://www.cnblogs.com/wanly3643/category/437878.html)
+### 创建线程执行方式
+- Thread
+- Runable
+- Callable
+  - 和Runable区别,方法可以有返回值,抛出异常
+  - 需要使用FutureTask支持,new FutureTask(runable)
+  - FuctureTask会接收runable线程执行完毕的结果
+- Executor
+### atomic
+- CAS
+  - 一种无锁机制
+  - 操作包含三个操作数:内存位置(V),预期原值(A),新值(B)
+  - 如果内存位置的值与预期原值相匹配,处理器会自动将该位置值更新为新值
+  - 优点:操作系统级别支持,效率更高,无锁机制,降低线程等待.
+- 四种类型
+  - AtomicBoolean
+  - AtomicInteger
+  - AtomicLong
+  - AtomicReferrence
+    - AtomicStampeReference 利用AtomicReference实现的一个存储引用和Integer数组的扩展类
+### locks
+#### CountDownlatch
+- 闭锁: 只有所有线程运算全部完成,当前运算才完成
+#### ReadWriteLock
+#### ReentrantLock
+### collections
+#### concurrentHashMap
+#### concurrentLinkedQueue
+#### concurrentSkipListSet
+#### concurrentSkipListMap
+- 相当于同步的treemap
+#### CopyOnWriteArrayList
+#### CopyOnWriteArraySet
+### tools
+### executor
+#### ExecutorService
+- ThreadPoolExecutor
+- ScheduleExeccutorService
+  - ScheduleThreadPoolExecutor: 继承了threadPoolExecutor,实现了ScheduleExecutorService
+#### Executors
+- newFixedThreadPool():创建固定大小的线程池
+- newCachedThreadPool():可以根据需求自动更改线程数量
+- newSingleThreadExecutor():创建单个线程池
+- newScheduledThreadPool():固定大小的线程池,可以延迟或者定时执行任务
+### 阻塞队列
+#### 无界队列和有界队列
+  - 有界队列: 有固定大小的队列,如设定了固定大小的LinkedBlockingQueue,或者长度为0,只做中转的SynchronousQueue
+  - 无界队列: 没有设置固定大小的队列,可以直接入列,知道溢出,现实中不会超过Integer.MAX_VALUE
+- 通过使用Condition接口实现
+#### ArrayBlockingQueue: 数组结构组成的有界阻塞队列,按先进先出顺序
+#### LinkedBlockQueue: 链表结构的有界阻塞队列,按先进先出排序
+#### PriorityBlockingQueue: 支持优先级排序的无界阻塞队列,靠元素自定义compareTo排序
+#### 使用队列优先级实现的无界阻塞队列,使用priorityQueue实现,元素必须实现Delayed接口
+#### SynchronousQueue: 一个不存储元素的阻塞队列,每一个put操作必须等待一个take操作,本身不存储元素,只负责将把生产者线程数据直接传递给消费者线程.
+#### LinkedTransferQueue: 链表结构的无界队列,多了transfer和tryTransfer方法
+  - transfer会将元素立刻传给消费者,如果没有消费者,会将元素放入tail节点,等待元素被消费才返
+  - trytransfer会检测是否有消费者等待消费,该方法会立即返回,不会等待元素被消费再返回
+#### LinkedBlockingDeque: 链表结构的双向阻塞队列
+### ForkAndJoin
+- extends RecusiveTask
+
+
 ## Java序列化
 - 
 ## 锁
