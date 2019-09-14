@@ -46,6 +46,7 @@
 - s/old/new 将第一个old替换成new
 - s/old/new/g 将正行old替换为new
 - #,#s/old/new/g 将#行到#行的old全部替换为new
+- 1,$s/old/new/g 将第一行到最后一行的old替换为new
 - %s/old/new/g 将整个文件的old替换new
 - %s/old/new/gc 将整个文件的old替换new,替换时进行提示是否替换
 - ctrl+G 查看当前光标的状态
