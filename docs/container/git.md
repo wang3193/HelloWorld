@@ -71,6 +71,7 @@
 - git pull alias branch 拉取新内容
 - git fetch [remote] 下载远程仓库所有变动
 - git push [remote] --force 强行推送本地内容到远程仓库,忽略冲突
+- git branch --set-upstream-to=origin/dev dev 建立本地和origin远程dev分支的连接
 ## 撤销
 - git checkout [file] 恢复暂存区的指定文件到工作区
 - git checkout [commit] [file] 恢复指定commit的指定文件到工作区
@@ -90,3 +91,6 @@
 - merge pullrequest 
 ## Other
 - git archive 生成一个可供发布的压缩包
+- git rebase -i [remote]/[branch] 合并提交日志
+- 将需要合并日志前的命令改为s即为合并日志
+- 合并日志后需要使用git push --force [remote] [branch]强行推送!以为日志会改变分支历史
