@@ -68,6 +68,15 @@
 - file [filename] 查看文件属性
 ### 查找文件
 - find [path] [filename] 查找path下的filename
+  - find . -name filename -type {f/d/l/c/b/s/p} 从当前目录及子目录下查找名称为filename,类型为f:文件,d:文件夹,l:链接,c:字符设备,b块设备,s套接字,p:fifo的文件.
+  - find . -maxdepth 3 想下最大限制深度为3
+  - find . (-atime|-amin|-mtime|-mmin|-ctime|-cmin) (-7|7|+7) 查找 (最近访问时间天|分钟|修改时间天|分钟|变化时间天|分钟) (7天内|正好7|7以外)的文件
+  - find . -size 2(b|c|w|k|M|G) 查找文件大小为2(b|字节|2字节|kb|MB|GB)的文件
+  - find . -name filename -delete 删除匹配文件
+  - find . -perm 777 依据文件权限进行匹配
+  - find . -empty 查找长度为0的文件
+  - find . -name file -exec rm -rf {} \; 匹配指定文件文件夹并删除
+  - find . -name file |xargs rm -rf  匹配指定文件文件夹并删除
 - locate [filename] 从数据库查询文件
   - 如果需要查询新建文件需要updatedb
 - which/whereis 查询可执行文件位置
@@ -142,3 +151,16 @@
   1. 运行configure生成makefile文件
   2. 运行make生成模块主程序
   3. 运行make install 将必要文件复制到安装目录
+## shell
+- 自动编译.bashrc文件
+ - 在~/.bash_profile中添加加载.bashrc语句
+```
+ # 加载.bashrc文件
+if test -f .bashrc ; then
+source .bashrc 
+fi
+```
+### login shell/nologin shell
+- 需要使用用户密码登录的shell为login shell, login shell 读取/etc/profile、$HOME/.bash_profile,$HOME/.bash_login，$HOME/.profile文件
+- 不需要用户密码的shell为nologin shell, nologin shell 读取$HOME/.bashrc，而.bashrc又会执行/etc/bashrc文件
+- mac的shell 是一个login shell,所以会读取.bash_profile文件而不是.bashrc文件

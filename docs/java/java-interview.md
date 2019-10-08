@@ -1,6 +1,7 @@
 # JAVA
 ## web
 - [从StringBuffer开始的面试问题](https://www.hollischuang.com/archives/3912)
+- [阿里、滴滴、美团大厂面经](https://juejin.im/post/5d6f0987f265da03cf7aab4f#heading-6)
 ## JVM内存结构
 - 堆:用于存储对象,被所有线程共享,只存放对象本身,不存放引用和基本类型
 - 栈:每个线程包含一个,用于存储基本对象,操作指令和执行环境上下文,每个栈内的数据各自独立,其他栈无法访问
