@@ -26,3 +26,51 @@
 - pom
   - springloaded
   - spring-boot-devtools
+## servlet3.0
+- servlet3.0采用注解方式注册listener,servlet,filter
+  - @WebServlet
+  - @WebFilter
+  - @WebListener
+- 使用SPI机制
+  - 在MATA-INF下创建service/javax.servlet.ServletContainerInitializer
+  - 在ServletContainerInitializer实现类中在servletContext中添加addServlet(),addListener(),addFilter()
+  - @HandlerType(interface.class) 会在ServletContainerInitializer实现类中
+## 扩展springMvc
+- spring 1.X extends WebMvcConfigAdapteron
+- spring 2.x implements WebMvcConfigurer 
+  - extends WebMvcConfigureSupport 会导致springboot的springmvc默认配置失效
+- 如果使用@EnableWebMvc会使springboot的springmvc的默认配置失效
+## springBoot 错误处理
+- 在静态文件夹或者模板文件夹下放error文件夹,内部放错误状态码.html文件
+- 自定义异常处理
+  - @ControllerAdvice 定义异常处理类, @ExceptionHandler(自定义异常.class)定义异常处理方法.
+## 侵入式servletr容器
+- 使用embeddedServletCustomizer来定制自定义容器属性
+- 配置文件中使用server.配置容器对应属性
+- 注册3大组件
+  - ServletRegistrationBean
+  - FilterRegistrationBean
+  - ServletListenerRegistrationBean
+
+## 使用其他servlet容器
+- 默认使用tomcat
+- jetty适合长连接应用
+- Undertow不支持jsp,但是高并发性能较好
+- 切换方式,在spring-boot-web中exclude spring-boot-starter-tomcat,引入要使用的servlet的pom文件
+- 使用外部tomcat
+  - 内置tomcat不能处理jsp
+  - 将打包方式改成war包
+  - 将spring-boot-starter-tomcat改为provided
+  - 编写一个springBootServletInitializer的子类,并调用configure方法
+  ```
+    public class ServletInitializer extends SpringBootServletInitializer{
+
+       @Override
+       protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
+         //传入springboot主程序
+         return application.sources(springbootmain.class);
+       }
+    }
+  ```
+
+
