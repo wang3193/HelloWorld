@@ -102,20 +102,20 @@
 - CRF: 
 # Java基础知识
 ## 阅读源代码
-- String、
+- String
   - final, serializable,comparable,CharSequence
   - char[] value
-- Integer、
+- Integer
   - Integercache -128 127
-- Long、
+- Long
   - Longcache -128 127 
-- Enum、
+- Enum
   - 实质是final calss extends Enum<Class> 的语法糖
-- BigDecimal、
-- ThreadLocal、
-- ClassLoader & URLClassLoader、
-- ArrayList & LinkedList、 
-- HashMap & LinkedHashMap & TreeMap & ConcurrentHashMap、
+- BigDecimal
+- ThreadLocal
+- ClassLoader & URLClassLoader
+- ArrayList & LinkedList
+- HashMap & LinkedHashMap & TreeMap & ConcurrentHashMap
 - HashSet & LinkedHashSet & TreeSet
 ## String
 - 字面量 运行时常量池
