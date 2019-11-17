@@ -8,6 +8,7 @@
   - git config --global user.name username
   - git config --global user.eamil email
 - 签名只用于区分提交代码身份,和远程仓库账号密码无关
+
 ## git 基本操作
 - git status 查看git状态
 - git add filename 添加文件进暂存区
@@ -18,6 +19,7 @@
 - git stash [stash_name] 将工作区内容暂存进stash中
 - git stash apply 将内容放回工作区.stash中的内容不会删除
 - git stash pop 将内容放回工作区后删除stash中的内容
+
 ## git 版本操作
 - git log
   - 多屏展示 空格:下一页 b:上一页 q:退出
@@ -35,6 +37,7 @@
 - git diff [commit1] [commit2] 显示2次提交之间的差异
 - git reflog 显示当前分支的最近几次提交
 - git show [commit] 显示某次提交的元数据和内容变化
+
 ## git 分支
 - git branch 列出所有本地分支
 - git branch -r 列出所有远程分支
@@ -50,17 +53,7 @@
 - git branch -d [branch-name] 删除本地分支
 - git branch -dr [remote/branch] 删除远程分支
 - git push [remote] --delete [branch-name] 删除远程分支
-- git 创建新的远程分支
-```
-## 查看远程分支
-git branch -a
-## 切换到对应远程分支 
-git checkout -b [本地分支名] [远程仓库名]/[远程分支名]
-## 查看本地分支和远程分支联系
-git branch -vv
-## 推送本地分支到远程分支
-git push -u [远程仓库名] [本地分支名]:[远程分支名]
-```
+
 ## git 标签
 - git tag 列出所有tag
 - git tag [tag] 在当前commit上创建一个tag
@@ -71,6 +64,7 @@ git push -u [远程仓库名] [本地分支名]:[远程分支名]
 - git push [remote] [tag] 推送指定tag
 - git push [remote] --tags 提交所有tag
 - git checkout -b [branch] [tag] 新建一个分支,指向tag
+
 ## git 远程仓库
 - git remote 查看远程库列表
 - git remote -v 查看远程库地址列表
@@ -83,12 +77,7 @@ git push -u [远程仓库名] [本地分支名]:[远程分支名]
 - git fetch [remote] 下载远程仓库所有变动
 - git push [remote] --force 强行推送本地内容到远程仓库,忽略冲突
 - git branch --set-upstream-to=origin/dev dev 建立本地和origin远程dev分支的连接
-- 强制将远程仓库代码覆盖本地代码
-```
- git fetch --all                //从另一个存储库下载对象和引用
- git reset --hard origin/master //放弃本地修改
- git pull                       //开始更新
-```
+
 ## 撤销
 - git checkout [file] 恢复暂存区的指定文件到工作区
 - git checkout [commit] [file] 恢复指定commit的指定文件到工作区
@@ -111,3 +100,30 @@ git push -u [远程仓库名] [本地分支名]:[远程分支名]
 - git rebase -i [remote]/[branch] 合并提交日志
 - 将需要合并日志前的命令改为s即为合并日志
 - 合并日志后需要使用git push --force [remote] [branch]强行推送!以为日志会改变分支历史
+
+## 实战问题
+### git 创建新的远程分支
+- 查看远程分支
+- git branch -a
+- 切换到对应远程分支 
+- git checkout -b [本地分支名] [远程仓库名]/[远程分支名]
+- 查看本地分支和远程分支联系
+- git branch -vv
+- 推送本地分支到远程分支
+- git push -u [远程仓库名] [本地分支名]:[远程分支名]
+
+### 强制将远程仓库代码覆盖本地代码
+- git fetch --all                //从另一个存储库下载对象和引用
+- git reset --hard origin/master //放弃本地修改
+- git pull                       //开始更新
+
+### HEAD detached from 头指针分离解决方案
+- git reflog 找到需要恢复的commit ，记下前面的commit id
+- git branch temp [commitid] 新建一个名字叫temp的分支
+- git push origin temp推送到仓库
+- git checkout master切换到主分支
+- git merge temp 将temp合并到master
+- git push origin master 推送到仓库
+- git branch -d temp删除临时分支
+
+
