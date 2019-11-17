@@ -26,3 +26,7 @@
 - pom
   - springloaded
   - spring-boot-devtools
+## 参考资料
+- [springboot一键部署到远程docker](https://mp.weixin.qq.com/s/vSCQLvQBYMYoPhdlO2v3XA)
+- [Nginx极简入门教程](https://mp.weixin.qq.com/s/ZN07_3ImmyRU0NQaqzcazQ)
+- [nginx部署前后端分离项目,处理跨域问题](https://mp.weixin.qq.com/s/okKU5VmBxwyht09TGTNdBQ)

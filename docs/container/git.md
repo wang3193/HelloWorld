@@ -50,6 +50,17 @@
 - git branch -d [branch-name] 删除本地分支
 - git branch -dr [remote/branch] 删除远程分支
 - git push [remote] --delete [branch-name] 删除远程分支
+- git 创建新的远程分支
+```
+## 查看远程分支
+git branch -a
+## 切换到对应远程分支 
+git checkout -b [本地分支名] [远程仓库名]/[远程分支名]
+## 查看本地分支和远程分支联系
+git branch -vv
+## 推送本地分支到远程分支
+git push -u [远程仓库名] [本地分支名]:[远程分支名]
+```
 ## git 标签
 - git tag 列出所有tag
 - git tag [tag] 在当前commit上创建一个tag
@@ -72,6 +83,12 @@
 - git fetch [remote] 下载远程仓库所有变动
 - git push [remote] --force 强行推送本地内容到远程仓库,忽略冲突
 - git branch --set-upstream-to=origin/dev dev 建立本地和origin远程dev分支的连接
+- 强制将远程仓库代码覆盖本地代码
+```
+ git fetch --all                //从另一个存储库下载对象和引用
+ git reset --hard origin/master //放弃本地修改
+ git pull                       //开始更新
+```
 ## 撤销
 - git checkout [file] 恢复暂存区的指定文件到工作区
 - git checkout [commit] [file] 恢复指定commit的指定文件到工作区
