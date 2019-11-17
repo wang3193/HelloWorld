@@ -8,10 +8,15 @@
   - [安装](#%e5%ae%89%e8%a3%85)
     - [ubuntu 安装](#ubuntu-%e5%ae%89%e8%a3%85)
     - [mac 安装](#mac-%e5%ae%89%e8%a3%85)
+  - [基础命令](#%e5%9f%ba%e7%a1%80%e5%91%bd%e4%bb%a4)
+    - [docker](#docker)
   - [启动](#%e5%90%af%e5%8a%a8)
   - [部署静态网站](#%e9%83%a8%e7%bd%b2%e9%9d%99%e6%80%81%e7%bd%91%e7%ab%99)
     - [创建Nginx部署](#%e5%88%9b%e5%bb%banginx%e9%83%a8%e7%bd%b2)
   - [镜像](#%e9%95%9c%e5%83%8f)
+  - [构建镜像](#%e6%9e%84%e5%bb%ba%e9%95%9c%e5%83%8f)
+    - [docker commit 方式构建镜像](#docker-commit-%e6%96%b9%e5%bc%8f%e6%9e%84%e5%bb%ba%e9%95%9c%e5%83%8f)
+    - [docker build 方式构建镜像](#docker-build-%e6%96%b9%e5%bc%8f%e6%9e%84%e5%bb%ba%e9%95%9c%e5%83%8f)
   - [Remote API](#remote-api)
   - [DockerFile](#dockerfile)
   - [DOckerFIle 构建过程](#dockerfile-%e6%9e%84%e5%bb%ba%e8%bf%87%e7%a8%8b)
@@ -20,6 +25,8 @@
   - [Docker容器与外部网络的连接](#docker%e5%ae%b9%e5%99%a8%e4%b8%8e%e5%a4%96%e9%83%a8%e7%bd%91%e7%bb%9c%e7%9a%84%e8%bf%9e%e6%8e%a5)
   - [Docker数据管理](#docker%e6%95%b0%e6%8d%ae%e7%ae%a1%e7%90%86)
   - [docker跨主机连接](#docker%e8%b7%a8%e4%b8%bb%e6%9c%ba%e8%bf%9e%e6%8e%a5)
+  - [小技巧](#%e5%b0%8f%e6%8a%80%e5%b7%a7)
+    - [删除所有容器](#%e5%88%a0%e9%99%a4%e6%89%80%e6%9c%89%e5%ae%b9%e5%99%a8)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -47,11 +54,41 @@
   - sudo service docker restart
 ### mac 安装
 - brew install docker
-
+## 基础命令
+### docker
+- run 启动容器
+  - --name 给容器命名
+  - -i 打开持续输入流
+  - -t 打开tty终端
+  - -d 启动守护式容器,后台运行容器
+  - --restart=always 自动重启容器
+  - -p port:imageport 指定主机端口和容器端口绑定
+- ps 查看正在运行的容器
+  - -a 查看所有容器
+  - -l 查看最后一次运行的容器
+  - -q 只返回容器id信息
+- start 启动停止的容器
+- logs 查看容器日志
+  - -f 持续查看
+- top 查看容器进程
+- exec 运行进程任务
+- stop 停止容器
+- inspect 获取容器信息
+- rm 删除容器
+- pull 拉取镜像
+- search 列出可拉镜像
+- images 查看本地下载镜像
+- login 登录dockerhub
+- commit 基于已有镜像构建新镜像
+- build 使用dockerFile构建镜像
+  - -t="rep/image:tag" 设置镜像信息
+- port 查看容器端口绑定情况
 ## 启动
 - docker run image commend 执行式启动,执行完命令后关闭
   - --privileged=true 是docker中的root拥有真正root的权限 
 - docker run -i -t -p:port image /bin/bash 交互式启动
+- -i 开启容器中的stdin,持续输入流
+- -t 分配一个伪tty终端
 - docker ps -a -l 查看docker容器
 - docker inspect id/name 依据容器id或名称查看容器
 - docker run --name=selfname -i -t image /bin/bash 使用自定义容器名
@@ -69,6 +106,7 @@
 - man docker-logs 查看docker日志命令
 - man docker-top
 - man docker-exec
+
 ## 部署静态网站
 - run -P -p 设置容器暴露端口 -P是容器暴露所有端口 -p指定映射指定容器端口
 ### 创建Nginx部署
@@ -94,6 +132,14 @@
 - docker push $image 推送镜像到docker hub
 - docker commit -a author -m message localimagename remoteimagename 构建镜像
 - docker build -t=name dockerfilepath 通过dockerfile 构建对象
+
+## 构建镜像
+### docker commit 方式构建镜像
+- docker commit -m="commit info" --author="authorname" [imageId] [repName]/[imageName]:[tagname]
+### docker build 方式构建镜像
+- docker build -t="rep/image:tag" dockerFiledir
+  - 会去dir文件夹中查找Dockerfile文件
+
 ## Remote API
 - 连接方式
   - unix:///var/run/docker.sock
@@ -102,6 +148,7 @@
 - ps -ef|grep docker 查看docker进程
 - status docker
 - DOCKER HOST: docker客户端参数配置docker远程访问
+
 ## DockerFile
 - # 注释
 - FROM image:version 
@@ -128,7 +175,7 @@
   - src dest
   - ["src","dest"]
   - ADD包含默认解压tar包和处理url, COPY使用于单纯复制文件
-- VOLUME["/data] 用于向基于镜像创建的容器添加卷
+- VOLUME["/data"] 用于向基于镜像创建的容器添加卷
 - WORKDIR 指定终端登录默认的目录,使用绝对路径,相对路径会一直传递
 - ENV key=value 创建环境变量
 - USER 指定镜像以什么用户去运行,不指定默认使用root用户
@@ -188,7 +235,10 @@
   - weave launch
 - 连接不同主机
 - 通过weave启动容器
-
-
+  
+## 小技巧
+### 删除所有容器
+- docker rm `docker ps -a -q`
+- 
 
 
