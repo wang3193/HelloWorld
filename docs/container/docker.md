@@ -209,6 +209,9 @@
   - --icc=false
 - 允许特定容器键互联
   - icc=false iptable=true 守护线程启动项中
+### 使用docker network 进行容器互联
+- docker network create [netname] 创建网络
+- docker run --network [netname] --network-alias [appname] 在启动容器时添加network参数连接网络,添加appname作为网络别名
 ## Docker容器与外部网络的连接
 - ip_forward
   -  
