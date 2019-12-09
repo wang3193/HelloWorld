@@ -28,11 +28,58 @@
 - nginx -s reopen --reopening the log files
 - nginx -c [nginxfile] 启动nginx
 
-## 反向代理
+## 常用变量
+- $uri 当前请求uri，不带参数
+- $request_uri 请求的uri,带完整参数
+- $host http请求报文中host首部,
+- $hostname nginx服务主机名
+- $remote_addr 客户端ip
+- $remote_port 客户端端口
+- $remote_user 使用用户认证时客户端用户输入的用户名
+- $request_method 请求方法类型
+- $server_addr 服务器地址
+- $http_x_forwarded_for 获取用户访问的真实ip
+
+## 常用模块
+### 状态监控
+- --with-http_stub_status_module 记录nginx客户端基本访问状态信息
+- 语法: 使用在server,location 中,使用stub_status on;
+```
+server{
+    stub_status  on;
+}
+location / {
+    stub_status on;
+}
+
+```
+### 下载站点
+- 语法: 用在http, server, location 中, 
+- autoindex on
+- autoindex_localtime on
+- autoindex_exact_size off on显示确切的大小,单位byte,off显示大概的大小
+```
+location /download/ {
+    root /root/file;
+    autoindex on;
+    autoindex_localtime on;
+    autoindex_exact_size off;
+}
+```
+
+### 请求限制模块
+- 语法: 用于http模块
+- 定义:limit_req_zone $binary_remote_addr zone=req_zone:1m rate=1r/s; 每秒处理一次请求,剩下都失败
+- 引用:limit_req zone=req_zone;
+- 引用:limit_req zone=req_zone burst=3 nodelay; 每秒处理一次请求,延迟处理{burst}个,剩下的返回503
+
+
+## 功能
+### 反向代理
 - 正向代理,客户端配置代理服务器
 - 反向代理,服务器配置代理服务器
 
-## 负载均衡
+### 负载均衡
 - upstream 配置一组被代理的服务器地址
 ```
 upstream mysvr { 
@@ -90,7 +137,7 @@ upstream mysvr {
     server 192.168.10.121:3333 weight=1 max_fails=2 fail_timeout=1;    
 }
 ```
-## 动静分离
+### 动静分离
 - 静态资源分离配置
 ```
 #所有js,css相关的静态资源文件的请求由Nginx处理
