@@ -69,6 +69,7 @@
 - git remote 查看远程库列表
 - git remote -v 查看远程库地址列表
 - git remote add alias url 添加远程库
+- git remote remove [remotename] 删除远程库连接
 - git push alias branch 推送到远程仓库
 - git clone url copy远程库
 - git fetch alias branch 将更新内容抓取到本地
@@ -77,6 +78,7 @@
 - git fetch [remote] 下载远程仓库所有变动
 - git push [remote] --force 强行推送本地内容到远程仓库,忽略冲突
 - git branch --set-upstream-to=origin/dev dev 建立本地和origin远程dev分支的连接
+- git checkout -b [branch] [remotebranch]
 
 ## 撤销
 - git checkout [file] 恢复暂存区的指定文件到工作区
@@ -88,6 +90,7 @@
 - git reset --keep [commit] 重置HEAD指针到指定commit,但暂存区和工作区不变
 - git revert [commit] 撤销指定commit,撤销也会作为一次提交进行保存。
 - git revert 是用新的commit回滚之前的commit, git reset 是直接删除指定的commit
+ 
 
 ## 跨团队合作
 - fork代码到仓库
