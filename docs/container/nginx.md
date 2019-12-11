@@ -13,7 +13,10 @@
 - http中间件
 - 轻量级
 - CPU亲和 把CPU核心和Nginx工作进程绑定,减少切换cpu的cache miss
-- 
+
+## 压测
+- ab -n 50 -c 20 url 压测
+
 ## install
 ### mac
 - brew install nginx
@@ -68,11 +71,65 @@ location /download/ {
 ```
 
 ### 请求限制模块
-- 语法: 用于http模块
+- 语法: 定义:用于http模块, 引用:http,server,location
 - 定义:limit_req_zone $binary_remote_addr zone=req_zone:1m rate=1r/s; 每秒处理一次请求,剩下都失败
 - 引用:limit_req zone=req_zone;
 - 引用:limit_req zone=req_zone burst=3 nodelay; 每秒处理一次请求,延迟处理{burst}个,剩下的返回503
 
+### 连接限制
+- 语法: 定义:用于http模块,引用:http,server,location
+- 定义: limit_conn_zone key zone=name:size;
+- 引用: limit_conn zone number;
+```
+http{
+    limit_conn_zone $binary_remote_addr zone=conn_zone:10m;
+
+    server {
+        location /{
+            //同一时刻只允许一个客户端ip连接
+            limit_conn conn_zone 1;
+        }
+    }
+}
+```
+
+### 访问控制
+- 语法: http server location limit_except
+- allow address | CIDR | unix: | all;
+- deny address | CIDR | unix: | all;
+```
+//有先后顺序,先上后下
+location / {
+    root /root/html;
+    deny 192.168.0.1;  //拒绝 192.168.0.1的用户
+    allow all;     //允许所有
+}
+```
+```
+//允许192.168.0.1拒绝其他所有人
+location / {
+    root /root;
+    allow 192.168.0.1;
+    deny all;
+}
+```
+
+## 静态资源
+### 文件高效读取 sendfile
+- http server location 
+- sendfile on
+- default off
+
+### 网络传输效率 nopush
+- http server location
+- tcp_nopush on
+- default off
+
+### 提高网络实时性 nodelay
+- http server location
+- tcp_nodelay on
+- 和网络传输效率相对应
+- default on
 
 ## 功能
 ### 反向代理
