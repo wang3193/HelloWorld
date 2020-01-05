@@ -77,3 +77,65 @@
     }
   ```
 
+## 项目开发
+### 创建自定义注解校验规则
+1. 创建注解@interface
+2. 实现ConstraintValidator<>
+
+### 同意异常处理
+1. 使用@RestControllerAdvice类
+2. 使用@ExceptionHandler(MyException.class)来处理对应的异常
+```
+@RestControllerAdvice
+public class GlobalException {
+  @ExceptionHandler(MyException.class)
+  public MyResponse handlerError(MyException e){
+      return new MyResponse();
+  }
+  //使用throwable来处理捕获不到的异常类
+  @ExceptionHandler(Throwable.class)
+  public MyResponse handlerError(Throwable e){
+
+  }
+}
+
+```
+- springmvc中处理同意异常,实现ErrorController.
+
+### 设置异步处理复制线程上下文
+1. 在config java类中创建Excutor bean对象
+2. bean对象中设置ContextCopying类(实现TaskDecorator)
+```
+public class ContextCopying implements TaskDecorator {
+  @Override
+  public Runnable decoratate(Runnable runnable) {
+    RequestAttributes context = RequestContextHolder.currentRequestAttribute();
+    return () -> {
+      try {
+        RequestContextHolder.setReqyestAttributes(context);
+        runnable.ru();
+      }finally {
+        RequestContextHolder.requestAttributes();
+      }
+    }
+  }
+}
+
+public class Appconfig {
+  @Bean(name="asyncExecutor")
+  public Executor asyncExecutor () {
+    ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+    executor.setTaskDecorator(new ContextCopying());
+    ...s
+    return executor;
+  }
+}
+
+```
+
+### JWT实现单点登录
+- jwt定义 json web token
+- jwt构成 header payload signature
+- 3部分均使用base64编码
+
+

@@ -129,4 +129,12 @@
 - git push origin master 推送到仓库
 - git branch -d temp删除临时分支
 
+### git pull 单个文件或者文件夹
+1. git remote add -f origin <url>   添加远程仓库
+2. git config core.sparsecheckout true 开启check模式
+3. 添加要下载的文件或文件夹 echo libs >> .git/info/sparse-checkout
+   echo apps/register.go >> .git/info/sparse-checkout
+4. 拉取所需分支 git pull origin master
+
+
 
