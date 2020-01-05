@@ -13,7 +13,10 @@
 - http中间件
 - 轻量级
 - CPU亲和 把CPU核心和Nginx工作进程绑定,减少切换cpu的cache miss
-- 
+
+## 压测
+- ab -n 50 -c 20 url 压测
+
 ## install
 ### mac
 - brew install nginx
@@ -28,11 +31,112 @@
 - nginx -s reopen --reopening the log files
 - nginx -c [nginxfile] 启动nginx
 
-## 反向代理
+## 常用变量
+- $uri 当前请求uri，不带参数
+- $request_uri 请求的uri,带完整参数
+- $host http请求报文中host首部,
+- $hostname nginx服务主机名
+- $remote_addr 客户端ip
+- $remote_port 客户端端口
+- $remote_user 使用用户认证时客户端用户输入的用户名
+- $request_method 请求方法类型
+- $server_addr 服务器地址
+- $http_x_forwarded_for 获取用户访问的真实ip
+
+## 常用模块
+### 状态监控
+- --with-http_stub_status_module 记录nginx客户端基本访问状态信息
+- 语法: 使用在server,location 中,使用stub_status on;
+```
+server{
+    stub_status  on;
+}
+location / {
+    stub_status on;
+}
+
+```
+### 下载站点
+- 语法: 用在http, server, location 中, 
+- autoindex on
+- autoindex_localtime on
+- autoindex_exact_size off on显示确切的大小,单位byte,off显示大概的大小
+```
+location /download/ {
+    root /root/file;
+    autoindex on;
+    autoindex_localtime on;
+    autoindex_exact_size off;
+}
+```
+
+### 请求限制模块
+- 语法: 定义:用于http模块, 引用:http,server,location
+- 定义:limit_req_zone $binary_remote_addr zone=req_zone:1m rate=1r/s; 每秒处理一次请求,剩下都失败
+- 引用:limit_req zone=req_zone;
+- 引用:limit_req zone=req_zone burst=3 nodelay; 每秒处理一次请求,延迟处理{burst}个,剩下的返回503
+
+### 连接限制
+- 语法: 定义:用于http模块,引用:http,server,location
+- 定义: limit_conn_zone key zone=name:size;
+- 引用: limit_conn zone number;
+```
+http{
+    limit_conn_zone $binary_remote_addr zone=conn_zone:10m;
+
+    server {
+        location /{
+            //同一时刻只允许一个客户端ip连接
+            limit_conn conn_zone 1;
+        }
+    }
+}
+```
+
+### 访问控制
+- 语法: http server location limit_except
+- allow address | CIDR | unix: | all;
+- deny address | CIDR | unix: | all;
+```
+//有先后顺序,先上后下
+location / {
+    root /root/html;
+    deny 192.168.0.1;  //拒绝 192.168.0.1的用户
+    allow all;     //允许所有
+}
+```
+```
+//允许192.168.0.1拒绝其他所有人
+location / {
+    root /root;
+    allow 192.168.0.1;
+    deny all;
+}
+```
+
+## 静态资源
+### 文件高效读取 sendfile
+- http server location 
+- sendfile on
+- default off
+
+### 网络传输效率 nopush
+- http server location
+- tcp_nopush on
+- default off
+
+### 提高网络实时性 nodelay
+- http server location
+- tcp_nodelay on
+- 和网络传输效率相对应
+- default on
+
+## 功能
+### 反向代理
 - 正向代理,客户端配置代理服务器
 - 反向代理,服务器配置代理服务器
 
-## 负载均衡
+### 负载均衡
 - upstream 配置一组被代理的服务器地址
 ```
 upstream mysvr { 
@@ -90,7 +194,7 @@ upstream mysvr {
     server 192.168.10.121:3333 weight=1 max_fails=2 fail_timeout=1;    
 }
 ```
-## 动静分离
+### 动静分离
 - 静态资源分离配置
 ```
 #所有js,css相关的静态资源文件的请求由Nginx处理
