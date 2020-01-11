@@ -131,6 +131,19 @@ location / {
 - 和网络传输效率相对应
 - default on
 
+### 静态文件压缩
+- http server location
+- gzip on 
+- default off
+    - 压缩比例配置
+    - gzip_comp_level 1
+    - 压缩协议配置
+    - gzip_http_version 1.1
+    - 预读gzip功能
+    - gzip_static on
+
+### 
+
 ## 功能
 ### 反向代理
 - 正向代理,客户端配置代理服务器
