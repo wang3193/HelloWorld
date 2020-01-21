@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>vue 组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</header>
+<body>
+<div id="app">
+	<button-counter></button-counter>
+	<blog-title title="aaa"></blog-title>
+	<blog-title :title="titlename"></blog-title>
+	<comp1></comp1>
+</div>
+<script>
+	//创建全局组件
+	Vue.component('button-counter',{
+		data : function () {
+			return {
+				count : 0
+			}
+		},
+		template: '<button @click="count++">clickNum : {{count}} </button>'
+	})
+	//使用props来给组件传值
+	Vue.component('blog-title',{
+		data: function(){
+			return {
+				
+			}
+		},
+		props:['title'],
+		template: '<div>{{title}}</div>'
+	})
+	var comp1 = {
+		data: function(){
+			return {}
+		},
+		template: '<div>局部注册组件</div>'
+	}
+	//使用组件
+    var vue = new Vue({
+        el : "#app",
+		data : function(){
+			return {
+				titlename: "from data"
+			}
+		},
+		//局部组件注册
+		components:{
+			'comp1': comp1
+		}
+    })
+</script>
+
+</body>
+</html>

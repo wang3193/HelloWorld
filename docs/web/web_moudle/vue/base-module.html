@@ -9,7 +9,70 @@
     <div>{{message}}</div>
     <div>{{show()}}</div>
     <div v-html='Html'></div>
-    <div v-bind:class='{"class1": use}'>v-bind 绑定属性</div>
+    <div v-bind:class='use'>v-bind 绑定属性</div>
+    <div v-once>{{vonce}}}</div>
+    <div v-if = 'seen'>v-if为true时渲染</div>
+    <div v-else-if = 'isShow'>v-if为false时，且v-else-if为true时渲染</div>
+    <div v-else >v-if 为false是渲染</div>
+    <div v-on:click = 'doSth'>使用v-on:event绑定方法事件</div>
+    <div v-on:[mname] = 'doSth'>v-on:[event]使用[]来获取动态的事件名称,注意event变量要使用小写</div>
+    <div :class="use">使用:作为v-bind的缩写</div>
+    <div @click="doSth">使用@作为v-on的缩写</div>
+    <div>使用computed处理复杂逻辑数据:{{revertMsg}},computed会是数据产生缓存</div>
+    <div :class="{show: isShow, noShow: noShow}">使用对象来动态切换class</div>
+	<div>使用v-for遍历数组</div>
+	<ul>
+		<li v-for="item in items">
+			{{ item.message }}
+		</li>
+	</ul>
+	<ul>
+		<li v-for="(item, index) in items">
+			{{index}}-{{item.message}}
+		</li>
+	</ul>
+	<div>使用v-for遍历对象</div>
+	<ul>
+		<li v-for="value in object">
+			{{value}}
+		</li>
+	</ul>
+	<ul>
+		<li v-for="(value, name) in object">
+			{{name}} : {{value}}
+		</li>
+	</ul>
+	<ul>
+		<li v-for="(value, name, index) in object">
+			{{name}}:{{index}}:{{value}}
+		</li>
+	</ul>
+	<div>使用v-model来进行双向绑定</div>
+	<input v-model="inputv" />
+	<p>msg: {{inputv}}</p>
+	<textarea v-model="inputta"></textarea>
+	<p>msg: {{inputta}}</p>
+	<input type="checkbox" id="checkbox1" v-model="checked" />
+	<p>{{checked}}</p>
+	<input type="checkbox" id="checkbox2" value="checkbox2" v-model="checkgroup" />
+	<label for="checkbox2">选择一</label>
+	<input type="checkbox" id="checkbox3" value="checkbox3" v-model="checkgroup" />
+	<label for="checkbox3">选择二</label>
+	<input type="checkbox" id="checkbox4" value="checkbox4" v-model="checkgroup" />
+	<label for="checkbox4">选择三</label>
+	<p>{{checkgroup}}</p>
+	
+	<input type="radio" id="a" value="a" v-model="picked" />
+	<label for="a">a</label>
+	<input type="radio" id="b" value="b" v-model="picked" />
+	<label for="b">b</label>
+	<div>result: {{picked}}</div>
+	<select v-model="options">
+		<option disabled value="">请选择</option>
+		<option>A</option>
+		<option>B</option>
+	</select>
+	<p>result:{{options}}</p>
 </div>
 
 <script>
@@ -18,12 +81,41 @@ new Vue({
     methods:{
         show : function(){
             return "{{模板方法()}}";
+        },
+        doSth : function(){
+            console.log("doSth");
         }
     },
     data: {
         message:"{{模板消息}}",
-        Html:"<p>v-html</p>",
-        use: false
+        Html:"<p>v-html创建html数据</p>",
+        use: 'showsth',
+        vonce: "使用v-once创建不会改变的值",
+        seen: true,
+        mname: 'click',
+        isShow: true,
+        noShow: false,
+		items: [
+			{message: "1"},
+			{message: "2"}
+		],
+		object : {
+			title : "aaa",
+			name : "bbb",
+			author : "ccc"
+		},
+		inputv : '',
+		inputta : "",
+		checked : false,
+		checkgroup : [],
+		picked : '',
+		options : ''
+    },
+    computed: {
+        //计算复杂数据
+        revertMsg: function(){
+            return this.message.split("").reverse().join('');
+        }
     }
 })
 </script>    
