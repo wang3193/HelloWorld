@@ -53,6 +53,9 @@
 - git branch -d [branch-name] 删除本地分支
 - git branch -dr [remote/branch] 删除远程分支
 - git push [remote] --delete [branch-name] 删除远程分支
+- git branch -a 会将remote已删除的分支也显示出来
+- git remote show [alias] 显示本地和远程分支对应关系, eg: git remote show origin
+- git remote prune [alias] 删除远程没有的本地分支 eg: git remote prune origin 
 
 ## git 标签
 - git tag 列出所有tag
